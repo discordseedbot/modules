@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 const { RichEmbed } = require("discord.js");
 
 module.exports.cmd = function(message) {
-	const guild = SB_Client.guilds.get(message.guild.id);
+	const guild = SB.client.guilds.cache.get(message.guild.id);
 	var data = [];
 	data.push(guild.name);
 	data.push(guild.id);
@@ -12,7 +12,7 @@ module.exports.cmd = function(message) {
 	data.push(guild.roles.size);
 	data.push(guild.channels.size);
 	data.push(guild.iconURL())
-	var evalEmbed = new Discord.RichEmbed()
+	var evalEmbed = new Discord.MessageEmbed()
 		.setTitle("Guild Info")
 		.addField("Guild Name", data[0], true)
 		.addField("Guild ID", data[1], true)
